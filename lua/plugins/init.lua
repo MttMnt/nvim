@@ -1,49 +1,52 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
+	{ import = "plugins.spec.undo-tree" },
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
-  },
+	{
+		"stevearc/conform.nvim",
+		-- event = 'BufWritePre', -- uncomment for format on save
+		config = function()
+			require("configs.conform")
+		end,
+	},
 
-  {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-  			"lua-language-server", "stylua",
-  			"html-lsp", "css-lsp" ,
-        "typescript-language-server",
-        "tailwindcss-language-server",
-        "eslint-lsp",
-        "prettierd",
-  		},
-  	},
-  },
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("nvchad.configs.lspconfig").defaults()
+			require("configs.lspconfig")
+		end,
+	},
 
-  {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "javascript", "typescript", "json", "tsx",
-  		},
-  	},
-  },
+	{
+		"williamboman/mason.nvim",
+		opts = {
+			ensure_installed = {
+				"lua-language-server",
+				"stylua",
+				"html-lsp",
+				"css-lsp",
+				"typescript-language-server",
+				"tailwindcss-language-server",
+				"eslint-lsp",
+				"prettierd",
+			},
+		},
+	},
 
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   event = "VeryLazy",
-  --   opts = function ()
-  --     return require "configs.none-ls"
-  --   end
-  -- }
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				"vim",
+				"lua",
+				"vimdoc",
+				"html",
+				"css",
+				"javascript",
+				"typescript",
+				"json",
+				"tsx",
+			},
+		},
+	},
 }
